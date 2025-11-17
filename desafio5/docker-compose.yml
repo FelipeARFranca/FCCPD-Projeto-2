@@ -1,0 +1,26 @@
+version: "3.8"
+
+
+services:
+  user-service-d5:
+    build: ./user-service
+    container_name: user-service-d5
+    ports:
+      - "8080:8080"
+
+
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    ports:
+      - "7000:7000"
+
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - user-service-d5
+      - order-service

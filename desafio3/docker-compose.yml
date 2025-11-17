@@ -1,0 +1,35 @@
+version: '3.8'
+
+
+services:
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - "8080:5000"
+    environment:
+      - CACHE_HOST=cache
+      - DB_HOST=db
+    depends_on:
+      - cache
+      - db
+
+
+  cache:
+    image: redis:7
+    container_name: cache
+
+
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=desafio3
+    volumes:
+      - pgdata3:/var/lib/postgresql/data
+
+
+volumes:
+  pgdata3:

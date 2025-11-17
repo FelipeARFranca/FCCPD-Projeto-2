@@ -1,0 +1,29 @@
+version: '3.8'
+
+
+services:
+  web-server:
+    build: ./web
+    container_name: web-server
+    networks:
+      - rede_desafio1
+    expose:
+      - "8080"
+    restart: unless-stopped
+
+
+  requester:
+    build: ./requester
+    container_name: requester
+    networks:
+      - rede_desafio1
+    environment:
+      - INTERVAL=3
+    depends_on:
+      - web-server
+    restart: unless-stopped
+
+
+networks:
+  rede_desafio1:
+    driver: bridge

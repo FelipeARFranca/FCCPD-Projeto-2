@@ -1,0 +1,18 @@
+version: "3.8"
+
+
+services:
+  service-a:
+    build: ./service-a
+    container_name: user-service
+    ports:
+      - "5000:5000"
+
+
+  service-b:
+    build: ./service-b
+    container_name: consumer-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - service-a

@@ -1,0 +1,30 @@
+version: '3.8'
+
+
+services:
+  db-server:
+    image: postgres:15
+    container_name: db-server
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=desafio2
+    ports:
+    - "5432:5432"
+    volumes:
+      - pgdata_desafio2:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+  
+  db-client:
+    build: ./client
+    depends_on:
+      - db-server
+    networks:
+      - default
+
+
+volumes:
+  pgdata_desafio2:
+    driver: local
