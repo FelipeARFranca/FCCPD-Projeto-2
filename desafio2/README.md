@@ -5,11 +5,11 @@ Objetivo:
 Descrição da Solução:
     Duas imagens/containers são criadas: db-server e db-client. O db-server é um container executando PostgreSQL, com seus dados armazenados em um volume docker de nome pgdata_desafio2. O db-client é um container separado que acessa o banco de dados para ler dados e mostrar a persistência após a recriação do db-server.
 
-    A persistência é demonstrada subindo o banco de dados e inserindo dados em uma tabela. Após isso, o container de banco de dados é derrubado. Em seguida, o container do banco de dados será subido novamente e então será verificado se os dados inseridos ainda permanecem lá.
+    A persistência é demonstrada subindo o banco de dados e inserindo dados em uma tabela. Para testar a persistência, o container de banco de dados deve derrubado. Em seguida, o container do banco de dados deve ser subido novamente e então será possível verificar se os dados inseridos ainda permanecem lá.
 
 Arquitetura:
-    +----------------------+         Volume Docker            +----------------------+
-    |                      | pgdata_desafio2 (host disk)      |                      |
+    +----------------------+          Volume Docker           +----------------------+
+    |                      |    pgdata_desafio2 (host disk)   |                      |
     | db-server            | <------------------------------> | Sistema Host         |
     | (PostgreSQL 15)      |                                  | (Armazena arquivos)  |
     +----------------------+                                  +----------------------+

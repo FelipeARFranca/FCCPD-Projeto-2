@@ -5,7 +5,7 @@ Objetivo:
 Descrição da Solução:
     Três imagens/containers são criados: user-service, order-service e gateway. O user-service fornece dados de usuários. O order-service fornece dados de pedidos. O gateway é o ponto único de entrada que encaminha requisições para os dois microsserviços.
 
-    O cliente acessa o gateway, que faz proxy da requisição para o serviço correspondente. Os microsserviços respondem com JSON e o gateway repassa a resposta para o cliente.
+    Um cliente poderia acessar o gateway, que faz proxy da requisição para o serviço correspondente. Os microsserviços respondem com JSON e o gateway repassa a resposta para esse cliente.
 
 Arquitetura:
                       +-------------------------+

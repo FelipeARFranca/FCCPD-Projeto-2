@@ -31,7 +31,7 @@ Instruções de Execução:
             docker logs -f web-server
         ou pelo app docker desktop
 
-        Espera-se que os logs mostrem o output do requester, requisições e respostas JSON do web-server saeguindo o seguinte formato:
+        Espera-se que os logs mostrem o output do requester, requisições e respostas JSON do web-server seguindo o seguinte formato:
 
         [requester] 2025-11-16T18:12:12Z -> requesting http://web-server:8080/⁠
         {"message":"Hello from web-server","timestamp":"2025-11-16T18:12:12.709681Z"}
